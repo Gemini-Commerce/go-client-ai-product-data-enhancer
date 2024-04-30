@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **TenantId**| **string** |   | [optional]
 **LanguageCode**| [**AiproductdataenhancerLanguageCode**](AiproductdataenhancerLanguageCode.md) |  for more information please, see Model/AiproductdataenhancerLanguageCode.php  | [optional] [default to AIPRODUCTDATAENHANCERLANGUAGECODE_UNKNOWN]
 **ProductInformation**| [**AiproductdataenhancerProductInformation**](AiproductdataenhancerProductInformation.md) |   | [optional]
-**ProductDataToFill**| **[]string** |   | [optional]
+**ProductDataToFill**| [**[]AiproductdataenhancerProductDataToFill**](AiproductdataenhancerProductDataToFill.md) |   | [optional]
 **DomainsToInclude**| **[]string** |   | [optional]
 **DomainsToExclude**| **[]string** |   | [optional]
 

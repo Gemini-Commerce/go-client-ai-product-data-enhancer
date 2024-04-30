@@ -22,7 +22,7 @@ type AiproductdataenhancerFillProductDataRequest struct {
 	TenantId *string `json:"tenantId,omitempty"`
 	LanguageCode *AiproductdataenhancerLanguageCode `json:"languageCode,omitempty"`
 	ProductInformation *AiproductdataenhancerProductInformation `json:"productInformation,omitempty"`
-	ProductDataToFill []string `json:"productDataToFill,omitempty"`
+	ProductDataToFill []AiproductdataenhancerProductDataToFill `json:"productDataToFill,omitempty"`
 	DomainsToInclude []string `json:"domainsToInclude,omitempty"`
 	DomainsToExclude []string `json:"domainsToExclude,omitempty"`
 }
@@ -145,9 +145,9 @@ func (o *AiproductdataenhancerFillProductDataRequest) SetProductInformation(v Ai
 }
 
 // GetProductDataToFill returns the ProductDataToFill field value if set, zero value otherwise.
-func (o *AiproductdataenhancerFillProductDataRequest) GetProductDataToFill() []string {
+func (o *AiproductdataenhancerFillProductDataRequest) GetProductDataToFill() []AiproductdataenhancerProductDataToFill {
 	if o == nil || IsNil(o.ProductDataToFill) {
-		var ret []string
+		var ret []AiproductdataenhancerProductDataToFill
 		return ret
 	}
 	return o.ProductDataToFill
@@ -155,7 +155,7 @@ func (o *AiproductdataenhancerFillProductDataRequest) GetProductDataToFill() []s
 
 // GetProductDataToFillOk returns a tuple with the ProductDataToFill field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AiproductdataenhancerFillProductDataRequest) GetProductDataToFillOk() ([]string, bool) {
+func (o *AiproductdataenhancerFillProductDataRequest) GetProductDataToFillOk() ([]AiproductdataenhancerProductDataToFill, bool) {
 	if o == nil || IsNil(o.ProductDataToFill) {
 		return nil, false
 	}
@@ -171,8 +171,8 @@ func (o *AiproductdataenhancerFillProductDataRequest) HasProductDataToFill() boo
 	return false
 }
 
-// SetProductDataToFill gets a reference to the given []string and assigns it to the ProductDataToFill field.
-func (o *AiproductdataenhancerFillProductDataRequest) SetProductDataToFill(v []string) {
+// SetProductDataToFill gets a reference to the given []AiproductdataenhancerProductDataToFill and assigns it to the ProductDataToFill field.
+func (o *AiproductdataenhancerFillProductDataRequest) SetProductDataToFill(v []AiproductdataenhancerProductDataToFill) {
 	o.ProductDataToFill = v
 }
 
