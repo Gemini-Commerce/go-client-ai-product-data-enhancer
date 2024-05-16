@@ -78,15 +78,19 @@ All URIs are relative to *http://localhost*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *AiProductDataEnhancerAPI* | [**AiProductDataEnhancerFillProductData**](docs/AiProductDataEnhancerAPI.md#aiproductdataenhancerfillproductdata) | **Post** /aiproductdataenhancer.AiProductDataEnhancer/FillProductData | 
+*AiProductDataEnhancerAPI* | [**AiProductDataEnhancerTranslateData**](docs/AiProductDataEnhancerAPI.md#aiproductdataenhancertranslatedata) | **Post** /aiproductdataenhancer.AiProductDataEnhancer/TranslateData | 
 
 
 ## Documentation For Models
 
+ - [AiproductdataenhancerDataToTranslate](docs/AiproductdataenhancerDataToTranslate.md)
  - [AiproductdataenhancerFillProductDataRequest](docs/AiproductdataenhancerFillProductDataRequest.md)
  - [AiproductdataenhancerFillProductDataResponse](docs/AiproductdataenhancerFillProductDataResponse.md)
  - [AiproductdataenhancerLanguageCode](docs/AiproductdataenhancerLanguageCode.md)
  - [AiproductdataenhancerProductDataToFill](docs/AiproductdataenhancerProductDataToFill.md)
  - [AiproductdataenhancerProductInformation](docs/AiproductdataenhancerProductInformation.md)
+ - [AiproductdataenhancerTranslateDataRequest](docs/AiproductdataenhancerTranslateDataRequest.md)
+ - [AiproductdataenhancerTranslateDataResponse](docs/AiproductdataenhancerTranslateDataResponse.md)
  - [ProtobufAny](docs/ProtobufAny.md)
  - [RpcStatus](docs/RpcStatus.md)
 
