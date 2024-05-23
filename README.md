@@ -78,14 +78,19 @@ All URIs are relative to *http://localhost*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *AiProductDataEnhancerAPI* | [**AiProductDataEnhancerFillProductData**](docs/AiProductDataEnhancerAPI.md#aiproductdataenhancerfillproductdata) | **Post** /aiproductdataenhancer.AiProductDataEnhancer/FillProductData | 
+*AiProductDataEnhancerAPI* | [**AiProductDataEnhancerFillProductDataCheck**](docs/AiProductDataEnhancerAPI.md#aiproductdataenhancerfillproductdatacheck) | **Post** /aiproductdataenhancer.AiProductDataEnhancer/FillProductDataCheck | 
 *AiProductDataEnhancerAPI* | [**AiProductDataEnhancerTranslateData**](docs/AiProductDataEnhancerAPI.md#aiproductdataenhancertranslatedata) | **Post** /aiproductdataenhancer.AiProductDataEnhancer/TranslateData | 
 
 
 ## Documentation For Models
 
  - [AiproductdataenhancerDataToTranslate](docs/AiproductdataenhancerDataToTranslate.md)
+ - [AiproductdataenhancerError](docs/AiproductdataenhancerError.md)
+ - [AiproductdataenhancerFillProductDataCheckRequest](docs/AiproductdataenhancerFillProductDataCheckRequest.md)
+ - [AiproductdataenhancerFillProductDataCheckResponse](docs/AiproductdataenhancerFillProductDataCheckResponse.md)
  - [AiproductdataenhancerFillProductDataRequest](docs/AiproductdataenhancerFillProductDataRequest.md)
  - [AiproductdataenhancerFillProductDataResponse](docs/AiproductdataenhancerFillProductDataResponse.md)
+ - [AiproductdataenhancerJobStatus](docs/AiproductdataenhancerJobStatus.md)
  - [AiproductdataenhancerLanguageCode](docs/AiproductdataenhancerLanguageCode.md)
  - [AiproductdataenhancerProductDataToFill](docs/AiproductdataenhancerProductDataToFill.md)
  - [AiproductdataenhancerProductInformation](docs/AiproductdataenhancerProductInformation.md)

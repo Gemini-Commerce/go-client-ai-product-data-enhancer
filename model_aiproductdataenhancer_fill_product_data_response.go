@@ -19,9 +19,7 @@ var _ MappedNullable = &AiproductdataenhancerFillProductDataResponse{}
 
 // AiproductdataenhancerFillProductDataResponse struct for AiproductdataenhancerFillProductDataResponse
 type AiproductdataenhancerFillProductDataResponse struct {
-	ProductDataFilled *map[string]string `json:"productDataFilled,omitempty"`
-	ConfidenceRate *float32 `json:"confidenceRate,omitempty"`
-	CompletionRate *float32 `json:"completionRate,omitempty"`
+	JobId *string `json:"jobId,omitempty"`
 }
 
 // NewAiproductdataenhancerFillProductDataResponse instantiates a new AiproductdataenhancerFillProductDataResponse object
@@ -41,100 +39,36 @@ func NewAiproductdataenhancerFillProductDataResponseWithDefaults() *Aiproductdat
 	return &this
 }
 
-// GetProductDataFilled returns the ProductDataFilled field value if set, zero value otherwise.
-func (o *AiproductdataenhancerFillProductDataResponse) GetProductDataFilled() map[string]string {
-	if o == nil || IsNil(o.ProductDataFilled) {
-		var ret map[string]string
+// GetJobId returns the JobId field value if set, zero value otherwise.
+func (o *AiproductdataenhancerFillProductDataResponse) GetJobId() string {
+	if o == nil || IsNil(o.JobId) {
+		var ret string
 		return ret
 	}
-	return *o.ProductDataFilled
+	return *o.JobId
 }
 
-// GetProductDataFilledOk returns a tuple with the ProductDataFilled field value if set, nil otherwise
+// GetJobIdOk returns a tuple with the JobId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AiproductdataenhancerFillProductDataResponse) GetProductDataFilledOk() (*map[string]string, bool) {
-	if o == nil || IsNil(o.ProductDataFilled) {
+func (o *AiproductdataenhancerFillProductDataResponse) GetJobIdOk() (*string, bool) {
+	if o == nil || IsNil(o.JobId) {
 		return nil, false
 	}
-	return o.ProductDataFilled, true
+	return o.JobId, true
 }
 
-// HasProductDataFilled returns a boolean if a field has been set.
-func (o *AiproductdataenhancerFillProductDataResponse) HasProductDataFilled() bool {
-	if o != nil && !IsNil(o.ProductDataFilled) {
+// HasJobId returns a boolean if a field has been set.
+func (o *AiproductdataenhancerFillProductDataResponse) HasJobId() bool {
+	if o != nil && !IsNil(o.JobId) {
 		return true
 	}
 
 	return false
 }
 
-// SetProductDataFilled gets a reference to the given map[string]string and assigns it to the ProductDataFilled field.
-func (o *AiproductdataenhancerFillProductDataResponse) SetProductDataFilled(v map[string]string) {
-	o.ProductDataFilled = &v
-}
-
-// GetConfidenceRate returns the ConfidenceRate field value if set, zero value otherwise.
-func (o *AiproductdataenhancerFillProductDataResponse) GetConfidenceRate() float32 {
-	if o == nil || IsNil(o.ConfidenceRate) {
-		var ret float32
-		return ret
-	}
-	return *o.ConfidenceRate
-}
-
-// GetConfidenceRateOk returns a tuple with the ConfidenceRate field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *AiproductdataenhancerFillProductDataResponse) GetConfidenceRateOk() (*float32, bool) {
-	if o == nil || IsNil(o.ConfidenceRate) {
-		return nil, false
-	}
-	return o.ConfidenceRate, true
-}
-
-// HasConfidenceRate returns a boolean if a field has been set.
-func (o *AiproductdataenhancerFillProductDataResponse) HasConfidenceRate() bool {
-	if o != nil && !IsNil(o.ConfidenceRate) {
-		return true
-	}
-
-	return false
-}
-
-// SetConfidenceRate gets a reference to the given float32 and assigns it to the ConfidenceRate field.
-func (o *AiproductdataenhancerFillProductDataResponse) SetConfidenceRate(v float32) {
-	o.ConfidenceRate = &v
-}
-
-// GetCompletionRate returns the CompletionRate field value if set, zero value otherwise.
-func (o *AiproductdataenhancerFillProductDataResponse) GetCompletionRate() float32 {
-	if o == nil || IsNil(o.CompletionRate) {
-		var ret float32
-		return ret
-	}
-	return *o.CompletionRate
-}
-
-// GetCompletionRateOk returns a tuple with the CompletionRate field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *AiproductdataenhancerFillProductDataResponse) GetCompletionRateOk() (*float32, bool) {
-	if o == nil || IsNil(o.CompletionRate) {
-		return nil, false
-	}
-	return o.CompletionRate, true
-}
-
-// HasCompletionRate returns a boolean if a field has been set.
-func (o *AiproductdataenhancerFillProductDataResponse) HasCompletionRate() bool {
-	if o != nil && !IsNil(o.CompletionRate) {
-		return true
-	}
-
-	return false
-}
-
-// SetCompletionRate gets a reference to the given float32 and assigns it to the CompletionRate field.
-func (o *AiproductdataenhancerFillProductDataResponse) SetCompletionRate(v float32) {
-	o.CompletionRate = &v
+// SetJobId gets a reference to the given string and assigns it to the JobId field.
+func (o *AiproductdataenhancerFillProductDataResponse) SetJobId(v string) {
+	o.JobId = &v
 }
 
 func (o AiproductdataenhancerFillProductDataResponse) MarshalJSON() ([]byte, error) {
@@ -147,14 +81,8 @@ func (o AiproductdataenhancerFillProductDataResponse) MarshalJSON() ([]byte, err
 
 func (o AiproductdataenhancerFillProductDataResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.ProductDataFilled) {
-		toSerialize["productDataFilled"] = o.ProductDataFilled
-	}
-	if !IsNil(o.ConfidenceRate) {
-		toSerialize["confidenceRate"] = o.ConfidenceRate
-	}
-	if !IsNil(o.CompletionRate) {
-		toSerialize["completionRate"] = o.CompletionRate
+	if !IsNil(o.JobId) {
+		toSerialize["jobId"] = o.JobId
 	}
 	return toSerialize, nil
 }

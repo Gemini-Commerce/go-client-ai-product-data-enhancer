@@ -21,6 +21,8 @@ var _ MappedNullable = &AiproductdataenhancerProductDataToFill{}
 type AiproductdataenhancerProductDataToFill struct {
 	Name *string `json:"name,omitempty"`
 	ValueSet []string `json:"valueSet,omitempty"`
+	// Metadata is an optional field to provide additional information to the AI like, max length, min length, field description, etc.
+	Metadata *map[string]string `json:"metadata,omitempty"`
 }
 
 // NewAiproductdataenhancerProductDataToFill instantiates a new AiproductdataenhancerProductDataToFill object
@@ -104,6 +106,38 @@ func (o *AiproductdataenhancerProductDataToFill) SetValueSet(v []string) {
 	o.ValueSet = v
 }
 
+// GetMetadata returns the Metadata field value if set, zero value otherwise.
+func (o *AiproductdataenhancerProductDataToFill) GetMetadata() map[string]string {
+	if o == nil || IsNil(o.Metadata) {
+		var ret map[string]string
+		return ret
+	}
+	return *o.Metadata
+}
+
+// GetMetadataOk returns a tuple with the Metadata field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AiproductdataenhancerProductDataToFill) GetMetadataOk() (*map[string]string, bool) {
+	if o == nil || IsNil(o.Metadata) {
+		return nil, false
+	}
+	return o.Metadata, true
+}
+
+// HasMetadata returns a boolean if a field has been set.
+func (o *AiproductdataenhancerProductDataToFill) HasMetadata() bool {
+	if o != nil && !IsNil(o.Metadata) {
+		return true
+	}
+
+	return false
+}
+
+// SetMetadata gets a reference to the given map[string]string and assigns it to the Metadata field.
+func (o *AiproductdataenhancerProductDataToFill) SetMetadata(v map[string]string) {
+	o.Metadata = &v
+}
+
 func (o AiproductdataenhancerProductDataToFill) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -119,6 +153,9 @@ func (o AiproductdataenhancerProductDataToFill) ToMap() (map[string]interface{},
 	}
 	if !IsNil(o.ValueSet) {
 		toSerialize["valueSet"] = o.ValueSet
+	}
+	if !IsNil(o.Metadata) {
+		toSerialize["metadata"] = o.Metadata
 	}
 	return toSerialize, nil
 }
