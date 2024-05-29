@@ -20,7 +20,8 @@ var _ MappedNullable = &AiproductdataenhancerTranslateDataRequest{}
 // AiproductdataenhancerTranslateDataRequest struct for AiproductdataenhancerTranslateDataRequest
 type AiproductdataenhancerTranslateDataRequest struct {
 	TenantId *string `json:"tenantId,omitempty"`
-	LanguageCode *AiproductdataenhancerLanguageCode `json:"languageCode,omitempty"`
+	TargetLanguage *AiproductdataenhancerLanguageCode `json:"targetLanguage,omitempty"`
+	SourceLanguage *AiproductdataenhancerLanguageCode `json:"sourceLanguage,omitempty"`
 	DataToTranslate []AiproductdataenhancerDataToTranslate `json:"dataToTranslate,omitempty"`
 }
 
@@ -30,8 +31,10 @@ type AiproductdataenhancerTranslateDataRequest struct {
 // will change when the set of required properties is changed
 func NewAiproductdataenhancerTranslateDataRequest() *AiproductdataenhancerTranslateDataRequest {
 	this := AiproductdataenhancerTranslateDataRequest{}
-	var languageCode AiproductdataenhancerLanguageCode = AIPRODUCTDATAENHANCERLANGUAGECODE_UNKNOWN
-	this.LanguageCode = &languageCode
+	var targetLanguage AiproductdataenhancerLanguageCode = AIPRODUCTDATAENHANCERLANGUAGECODE_UNKNOWN
+	this.TargetLanguage = &targetLanguage
+	var sourceLanguage AiproductdataenhancerLanguageCode = AIPRODUCTDATAENHANCERLANGUAGECODE_UNKNOWN
+	this.SourceLanguage = &sourceLanguage
 	return &this
 }
 
@@ -40,8 +43,10 @@ func NewAiproductdataenhancerTranslateDataRequest() *AiproductdataenhancerTransl
 // but it doesn't guarantee that properties required by API are set
 func NewAiproductdataenhancerTranslateDataRequestWithDefaults() *AiproductdataenhancerTranslateDataRequest {
 	this := AiproductdataenhancerTranslateDataRequest{}
-	var languageCode AiproductdataenhancerLanguageCode = AIPRODUCTDATAENHANCERLANGUAGECODE_UNKNOWN
-	this.LanguageCode = &languageCode
+	var targetLanguage AiproductdataenhancerLanguageCode = AIPRODUCTDATAENHANCERLANGUAGECODE_UNKNOWN
+	this.TargetLanguage = &targetLanguage
+	var sourceLanguage AiproductdataenhancerLanguageCode = AIPRODUCTDATAENHANCERLANGUAGECODE_UNKNOWN
+	this.SourceLanguage = &sourceLanguage
 	return &this
 }
 
@@ -77,36 +82,68 @@ func (o *AiproductdataenhancerTranslateDataRequest) SetTenantId(v string) {
 	o.TenantId = &v
 }
 
-// GetLanguageCode returns the LanguageCode field value if set, zero value otherwise.
-func (o *AiproductdataenhancerTranslateDataRequest) GetLanguageCode() AiproductdataenhancerLanguageCode {
-	if o == nil || IsNil(o.LanguageCode) {
+// GetTargetLanguage returns the TargetLanguage field value if set, zero value otherwise.
+func (o *AiproductdataenhancerTranslateDataRequest) GetTargetLanguage() AiproductdataenhancerLanguageCode {
+	if o == nil || IsNil(o.TargetLanguage) {
 		var ret AiproductdataenhancerLanguageCode
 		return ret
 	}
-	return *o.LanguageCode
+	return *o.TargetLanguage
 }
 
-// GetLanguageCodeOk returns a tuple with the LanguageCode field value if set, nil otherwise
+// GetTargetLanguageOk returns a tuple with the TargetLanguage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AiproductdataenhancerTranslateDataRequest) GetLanguageCodeOk() (*AiproductdataenhancerLanguageCode, bool) {
-	if o == nil || IsNil(o.LanguageCode) {
+func (o *AiproductdataenhancerTranslateDataRequest) GetTargetLanguageOk() (*AiproductdataenhancerLanguageCode, bool) {
+	if o == nil || IsNil(o.TargetLanguage) {
 		return nil, false
 	}
-	return o.LanguageCode, true
+	return o.TargetLanguage, true
 }
 
-// HasLanguageCode returns a boolean if a field has been set.
-func (o *AiproductdataenhancerTranslateDataRequest) HasLanguageCode() bool {
-	if o != nil && !IsNil(o.LanguageCode) {
+// HasTargetLanguage returns a boolean if a field has been set.
+func (o *AiproductdataenhancerTranslateDataRequest) HasTargetLanguage() bool {
+	if o != nil && !IsNil(o.TargetLanguage) {
 		return true
 	}
 
 	return false
 }
 
-// SetLanguageCode gets a reference to the given AiproductdataenhancerLanguageCode and assigns it to the LanguageCode field.
-func (o *AiproductdataenhancerTranslateDataRequest) SetLanguageCode(v AiproductdataenhancerLanguageCode) {
-	o.LanguageCode = &v
+// SetTargetLanguage gets a reference to the given AiproductdataenhancerLanguageCode and assigns it to the TargetLanguage field.
+func (o *AiproductdataenhancerTranslateDataRequest) SetTargetLanguage(v AiproductdataenhancerLanguageCode) {
+	o.TargetLanguage = &v
+}
+
+// GetSourceLanguage returns the SourceLanguage field value if set, zero value otherwise.
+func (o *AiproductdataenhancerTranslateDataRequest) GetSourceLanguage() AiproductdataenhancerLanguageCode {
+	if o == nil || IsNil(o.SourceLanguage) {
+		var ret AiproductdataenhancerLanguageCode
+		return ret
+	}
+	return *o.SourceLanguage
+}
+
+// GetSourceLanguageOk returns a tuple with the SourceLanguage field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AiproductdataenhancerTranslateDataRequest) GetSourceLanguageOk() (*AiproductdataenhancerLanguageCode, bool) {
+	if o == nil || IsNil(o.SourceLanguage) {
+		return nil, false
+	}
+	return o.SourceLanguage, true
+}
+
+// HasSourceLanguage returns a boolean if a field has been set.
+func (o *AiproductdataenhancerTranslateDataRequest) HasSourceLanguage() bool {
+	if o != nil && !IsNil(o.SourceLanguage) {
+		return true
+	}
+
+	return false
+}
+
+// SetSourceLanguage gets a reference to the given AiproductdataenhancerLanguageCode and assigns it to the SourceLanguage field.
+func (o *AiproductdataenhancerTranslateDataRequest) SetSourceLanguage(v AiproductdataenhancerLanguageCode) {
+	o.SourceLanguage = &v
 }
 
 // GetDataToTranslate returns the DataToTranslate field value if set, zero value otherwise.
@@ -154,8 +191,11 @@ func (o AiproductdataenhancerTranslateDataRequest) ToMap() (map[string]interface
 	if !IsNil(o.TenantId) {
 		toSerialize["tenantId"] = o.TenantId
 	}
-	if !IsNil(o.LanguageCode) {
-		toSerialize["languageCode"] = o.LanguageCode
+	if !IsNil(o.TargetLanguage) {
+		toSerialize["targetLanguage"] = o.TargetLanguage
+	}
+	if !IsNil(o.SourceLanguage) {
+		toSerialize["sourceLanguage"] = o.SourceLanguage
 	}
 	if !IsNil(o.DataToTranslate) {
 		toSerialize["dataToTranslate"] = o.DataToTranslate
