@@ -1,0 +1,28 @@
+# # AiproductdataenhancerToneType
+
+
+## Properties 
+
+
+
+| Value |
+------------ | 
+UNKNOWN|&quot;TONE_TYPE_UNKNOWN&quot;
+FORMAL|&quot;TONE_TYPE_FORMAL&quot;
+CASUAL|&quot;TONE_TYPE_CASUAL&quot;
+PERSUASIVE|&quot;TONE_TYPE_PERSUASIVE&quot;
+INFORMATIVE|&quot;TONE_TYPE_INFORMATIVE&quot;
+INSPIRATIONAL|&quot;TONE_TYPE_INSPIRATIONAL&quot;
+AUTHORITATIVE|&quot;TONE_TYPE_AUTHORITATIVE&quot;
+PLAYFUL|&quot;TONE_TYPE_PLAYFUL&quot;
+EMPATHETIC|&quot;TONE_TYPE_EMPATHETIC&quot;
+SALES_ORIENTED|&quot;TONE_TYPE_SALES_ORIENTED&quot;
+TECHNICAL|&quot;TONE_TYPE_TECHNICAL&quot;
+SOPHISTICATED|&quot;TONE_TYPE_SOPHISTICATED&quot;
+URGENT|&quot;TONE_TYPE_URGENT&quot;
+FRIENDLY|&quot;TONE_TYPE_FRIENDLY&quot;
+PROFESSIONAL|&quot;TONE_TYPE_PROFESSIONAL&quot;
+HUMOROUS|&quot;TONE_TYPE_HUMOROUS&quot;
+
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
+

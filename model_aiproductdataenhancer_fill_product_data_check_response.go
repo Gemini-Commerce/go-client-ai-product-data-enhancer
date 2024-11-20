@@ -19,12 +19,16 @@ var _ MappedNullable = &AiproductdataenhancerFillProductDataCheckResponse{}
 
 // AiproductdataenhancerFillProductDataCheckResponse struct for AiproductdataenhancerFillProductDataCheckResponse
 type AiproductdataenhancerFillProductDataCheckResponse struct {
-	ProductDataFilled *map[string]string `json:"productDataFilled,omitempty"`
-	ConfidenceRate *float32 `json:"confidenceRate,omitempty"`
-	CompletionRate *float32 `json:"completionRate,omitempty"`
-	Status *AiproductdataenhancerJobStatus `json:"status,omitempty"`
-	Error *AiproductdataenhancerError `json:"error,omitempty"`
+	ProductDataFilled    *map[string]string              `json:"productDataFilled,omitempty"`
+	ConfidenceRate       *float32                        `json:"confidenceRate,omitempty"`
+	CompletionRate       *float32                        `json:"completionRate,omitempty"`
+	Status               *AiproductdataenhancerJobStatus `json:"status,omitempty"`
+	Error                *AiproductdataenhancerError     `json:"error,omitempty"`
+	ImageUrls            []string                        `json:"imageUrls,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _AiproductdataenhancerFillProductDataCheckResponse AiproductdataenhancerFillProductDataCheckResponse
 
 // NewAiproductdataenhancerFillProductDataCheckResponse instantiates a new AiproductdataenhancerFillProductDataCheckResponse object
 // This constructor will assign default values to properties that have it defined,
@@ -207,8 +211,40 @@ func (o *AiproductdataenhancerFillProductDataCheckResponse) SetError(v Aiproduct
 	o.Error = &v
 }
 
+// GetImageUrls returns the ImageUrls field value if set, zero value otherwise.
+func (o *AiproductdataenhancerFillProductDataCheckResponse) GetImageUrls() []string {
+	if o == nil || IsNil(o.ImageUrls) {
+		var ret []string
+		return ret
+	}
+	return o.ImageUrls
+}
+
+// GetImageUrlsOk returns a tuple with the ImageUrls field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AiproductdataenhancerFillProductDataCheckResponse) GetImageUrlsOk() ([]string, bool) {
+	if o == nil || IsNil(o.ImageUrls) {
+		return nil, false
+	}
+	return o.ImageUrls, true
+}
+
+// HasImageUrls returns a boolean if a field has been set.
+func (o *AiproductdataenhancerFillProductDataCheckResponse) HasImageUrls() bool {
+	if o != nil && !IsNil(o.ImageUrls) {
+		return true
+	}
+
+	return false
+}
+
+// SetImageUrls gets a reference to the given []string and assigns it to the ImageUrls field.
+func (o *AiproductdataenhancerFillProductDataCheckResponse) SetImageUrls(v []string) {
+	o.ImageUrls = v
+}
+
 func (o AiproductdataenhancerFillProductDataCheckResponse) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -232,7 +268,61 @@ func (o AiproductdataenhancerFillProductDataCheckResponse) ToMap() (map[string]i
 	if !IsNil(o.Error) {
 		toSerialize["error"] = o.Error
 	}
+	if !IsNil(o.ImageUrls) {
+		toSerialize["imageUrls"] = o.ImageUrls
+	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *AiproductdataenhancerFillProductDataCheckResponse) UnmarshalJSON(data []byte) (err error) {
+	varAiproductdataenhancerFillProductDataCheckResponse := _AiproductdataenhancerFillProductDataCheckResponse{}
+
+	err = json.Unmarshal(data, &varAiproductdataenhancerFillProductDataCheckResponse)
+
+	if err != nil {
+		return err
+	}
+
+	*o = AiproductdataenhancerFillProductDataCheckResponse(varAiproductdataenhancerFillProductDataCheckResponse)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "productDataFilled")
+		delete(additionalProperties, "confidenceRate")
+		delete(additionalProperties, "completionRate")
+		delete(additionalProperties, "status")
+		delete(additionalProperties, "error")
+		delete(additionalProperties, "imageUrls")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
+}
+
+// GetValue returns the value of well-known types
+func (o *AiproductdataenhancerFillProductDataCheckResponse) GetValue() interface{} {
+	if o == nil || IsNil(o.AdditionalProperties) {
+		return nil
+	}
+	return o.AdditionalProperties["value"]
+}
+
+// SetValue populates the value of well-known types
+func (o *AiproductdataenhancerFillProductDataCheckResponse) SetValue(value interface{}) {
+	if o == nil || IsNil(value) {
+		return
+	}
+	if IsNil(o.AdditionalProperties) {
+		o.AdditionalProperties = map[string]interface{}{}
+	}
+	o.AdditionalProperties["value"] = value
+	return
 }
 
 type NullableAiproductdataenhancerFillProductDataCheckResponse struct {
@@ -270,5 +360,3 @@ func (v *NullableAiproductdataenhancerFillProductDataCheckResponse) UnmarshalJSO
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

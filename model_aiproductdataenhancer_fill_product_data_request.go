@@ -19,13 +19,17 @@ var _ MappedNullable = &AiproductdataenhancerFillProductDataRequest{}
 
 // AiproductdataenhancerFillProductDataRequest struct for AiproductdataenhancerFillProductDataRequest
 type AiproductdataenhancerFillProductDataRequest struct {
-	TenantId *string `json:"tenantId,omitempty"`
-	LanguageCode *AiproductdataenhancerLanguageCode `json:"languageCode,omitempty"`
-	ProductInformation *AiproductdataenhancerProductInformation `json:"productInformation,omitempty"`
-	ProductDataToFill []AiproductdataenhancerProductDataToFill `json:"productDataToFill,omitempty"`
-	DomainsToInclude []string `json:"domainsToInclude,omitempty"`
-	DomainsToExclude []string `json:"domainsToExclude,omitempty"`
+	TenantId             *string                                  `json:"tenantId,omitempty"`
+	LanguageCode         *AiproductdataenhancerLanguageCode       `json:"languageCode,omitempty"`
+	ProductInformation   *AiproductdataenhancerProductInformation `json:"productInformation,omitempty"`
+	ProductDataToFill    []AiproductdataenhancerProductDataToFill `json:"productDataToFill,omitempty"`
+	DomainsToInclude     []string                                 `json:"domainsToInclude,omitempty"`
+	DomainsToExclude     []string                                 `json:"domainsToExclude,omitempty"`
+	ExtractImages        *bool                                    `json:"extractImages,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _AiproductdataenhancerFillProductDataRequest AiproductdataenhancerFillProductDataRequest
 
 // NewAiproductdataenhancerFillProductDataRequest instantiates a new AiproductdataenhancerFillProductDataRequest object
 // This constructor will assign default values to properties that have it defined,
@@ -240,8 +244,40 @@ func (o *AiproductdataenhancerFillProductDataRequest) SetDomainsToExclude(v []st
 	o.DomainsToExclude = v
 }
 
+// GetExtractImages returns the ExtractImages field value if set, zero value otherwise.
+func (o *AiproductdataenhancerFillProductDataRequest) GetExtractImages() bool {
+	if o == nil || IsNil(o.ExtractImages) {
+		var ret bool
+		return ret
+	}
+	return *o.ExtractImages
+}
+
+// GetExtractImagesOk returns a tuple with the ExtractImages field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AiproductdataenhancerFillProductDataRequest) GetExtractImagesOk() (*bool, bool) {
+	if o == nil || IsNil(o.ExtractImages) {
+		return nil, false
+	}
+	return o.ExtractImages, true
+}
+
+// HasExtractImages returns a boolean if a field has been set.
+func (o *AiproductdataenhancerFillProductDataRequest) HasExtractImages() bool {
+	if o != nil && !IsNil(o.ExtractImages) {
+		return true
+	}
+
+	return false
+}
+
+// SetExtractImages gets a reference to the given bool and assigns it to the ExtractImages field.
+func (o *AiproductdataenhancerFillProductDataRequest) SetExtractImages(v bool) {
+	o.ExtractImages = &v
+}
+
 func (o AiproductdataenhancerFillProductDataRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -268,7 +304,42 @@ func (o AiproductdataenhancerFillProductDataRequest) ToMap() (map[string]interfa
 	if !IsNil(o.DomainsToExclude) {
 		toSerialize["domainsToExclude"] = o.DomainsToExclude
 	}
+	if !IsNil(o.ExtractImages) {
+		toSerialize["extractImages"] = o.ExtractImages
+	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *AiproductdataenhancerFillProductDataRequest) UnmarshalJSON(data []byte) (err error) {
+	varAiproductdataenhancerFillProductDataRequest := _AiproductdataenhancerFillProductDataRequest{}
+
+	err = json.Unmarshal(data, &varAiproductdataenhancerFillProductDataRequest)
+
+	if err != nil {
+		return err
+	}
+
+	*o = AiproductdataenhancerFillProductDataRequest(varAiproductdataenhancerFillProductDataRequest)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "tenantId")
+		delete(additionalProperties, "languageCode")
+		delete(additionalProperties, "productInformation")
+		delete(additionalProperties, "productDataToFill")
+		delete(additionalProperties, "domainsToInclude")
+		delete(additionalProperties, "domainsToExclude")
+		delete(additionalProperties, "extractImages")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableAiproductdataenhancerFillProductDataRequest struct {
@@ -306,5 +377,3 @@ func (v *NullableAiproductdataenhancerFillProductDataRequest) UnmarshalJSON(src 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

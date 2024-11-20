@@ -19,9 +19,12 @@ var _ MappedNullable = &AiproductdataenhancerError{}
 
 // AiproductdataenhancerError struct for AiproductdataenhancerError
 type AiproductdataenhancerError struct {
-	Code *string `json:"code,omitempty"`
-	Message *string `json:"message,omitempty"`
+	Code                 *string `json:"code,omitempty"`
+	Message              *string `json:"message,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _AiproductdataenhancerError AiproductdataenhancerError
 
 // NewAiproductdataenhancerError instantiates a new AiproductdataenhancerError object
 // This constructor will assign default values to properties that have it defined,
@@ -105,7 +108,7 @@ func (o *AiproductdataenhancerError) SetMessage(v string) {
 }
 
 func (o AiproductdataenhancerError) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -120,7 +123,34 @@ func (o AiproductdataenhancerError) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Message) {
 		toSerialize["message"] = o.Message
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *AiproductdataenhancerError) UnmarshalJSON(data []byte) (err error) {
+	varAiproductdataenhancerError := _AiproductdataenhancerError{}
+
+	err = json.Unmarshal(data, &varAiproductdataenhancerError)
+
+	if err != nil {
+		return err
+	}
+
+	*o = AiproductdataenhancerError(varAiproductdataenhancerError)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "code")
+		delete(additionalProperties, "message")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableAiproductdataenhancerError struct {
@@ -158,5 +188,3 @@ func (v *NullableAiproductdataenhancerError) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

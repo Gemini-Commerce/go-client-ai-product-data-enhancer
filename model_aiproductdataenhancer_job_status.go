@@ -20,11 +20,11 @@ type AiproductdataenhancerJobStatus string
 
 // List of aiproductdataenhancerJobStatus
 const (
-	AIPRODUCTDATAENHANCERJOBSTATUS_UNKNOWN AiproductdataenhancerJobStatus = "JOB_STATUS_UNKNOWN"
-	AIPRODUCTDATAENHANCERJOBSTATUS_PENDING AiproductdataenhancerJobStatus = "JOB_STATUS_PENDING"
-	AIPRODUCTDATAENHANCERJOBSTATUS_RUNNING AiproductdataenhancerJobStatus = "JOB_STATUS_RUNNING"
+	AIPRODUCTDATAENHANCERJOBSTATUS_UNKNOWN   AiproductdataenhancerJobStatus = "JOB_STATUS_UNKNOWN"
+	AIPRODUCTDATAENHANCERJOBSTATUS_PENDING   AiproductdataenhancerJobStatus = "JOB_STATUS_PENDING"
+	AIPRODUCTDATAENHANCERJOBSTATUS_RUNNING   AiproductdataenhancerJobStatus = "JOB_STATUS_RUNNING"
 	AIPRODUCTDATAENHANCERJOBSTATUS_COMPLETED AiproductdataenhancerJobStatus = "JOB_STATUS_COMPLETED"
-	AIPRODUCTDATAENHANCERJOBSTATUS_FAILED AiproductdataenhancerJobStatus = "JOB_STATUS_FAILED"
+	AIPRODUCTDATAENHANCERJOBSTATUS_FAILED    AiproductdataenhancerJobStatus = "JOB_STATUS_FAILED"
 )
 
 // All allowed values of AiproductdataenhancerJobStatus enum
@@ -114,4 +114,3 @@ func (v *NullableAiproductdataenhancerJobStatus) UnmarshalJSON(src []byte) error
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

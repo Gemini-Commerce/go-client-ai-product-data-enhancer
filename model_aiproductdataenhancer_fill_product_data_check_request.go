@@ -19,9 +19,12 @@ var _ MappedNullable = &AiproductdataenhancerFillProductDataCheckRequest{}
 
 // AiproductdataenhancerFillProductDataCheckRequest struct for AiproductdataenhancerFillProductDataCheckRequest
 type AiproductdataenhancerFillProductDataCheckRequest struct {
-	TenantId *string `json:"tenantId,omitempty"`
-	JobId *string `json:"jobId,omitempty"`
+	TenantId             *string `json:"tenantId,omitempty"`
+	JobId                *string `json:"jobId,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _AiproductdataenhancerFillProductDataCheckRequest AiproductdataenhancerFillProductDataCheckRequest
 
 // NewAiproductdataenhancerFillProductDataCheckRequest instantiates a new AiproductdataenhancerFillProductDataCheckRequest object
 // This constructor will assign default values to properties that have it defined,
@@ -105,7 +108,7 @@ func (o *AiproductdataenhancerFillProductDataCheckRequest) SetJobId(v string) {
 }
 
 func (o AiproductdataenhancerFillProductDataCheckRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -120,7 +123,34 @@ func (o AiproductdataenhancerFillProductDataCheckRequest) ToMap() (map[string]in
 	if !IsNil(o.JobId) {
 		toSerialize["jobId"] = o.JobId
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *AiproductdataenhancerFillProductDataCheckRequest) UnmarshalJSON(data []byte) (err error) {
+	varAiproductdataenhancerFillProductDataCheckRequest := _AiproductdataenhancerFillProductDataCheckRequest{}
+
+	err = json.Unmarshal(data, &varAiproductdataenhancerFillProductDataCheckRequest)
+
+	if err != nil {
+		return err
+	}
+
+	*o = AiproductdataenhancerFillProductDataCheckRequest(varAiproductdataenhancerFillProductDataCheckRequest)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "tenantId")
+		delete(additionalProperties, "jobId")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableAiproductdataenhancerFillProductDataCheckRequest struct {
@@ -158,5 +188,3 @@ func (v *NullableAiproductdataenhancerFillProductDataCheckRequest) UnmarshalJSON
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

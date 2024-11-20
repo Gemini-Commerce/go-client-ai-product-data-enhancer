@@ -18,85 +18,97 @@ import (
 	"net/url"
 )
 
-
 type AiProductDataEnhancerAPI interface {
 
 	/*
-	AiProductDataEnhancerFillProductData Method for AiProductDataEnhancerFillProductData
+		AiProductDataEnhancerFillProductData Method for AiProductDataEnhancerFillProductData
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return AiProductDataEnhancerAPIAiProductDataEnhancerFillProductDataRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiAiProductDataEnhancerFillProductDataRequest
 	*/
-	AiProductDataEnhancerFillProductData(ctx context.Context) AiProductDataEnhancerAPIAiProductDataEnhancerFillProductDataRequest
+	AiProductDataEnhancerFillProductData(ctx context.Context) ApiAiProductDataEnhancerFillProductDataRequest
 
 	// AiProductDataEnhancerFillProductDataExecute executes the request
 	//  @return AiproductdataenhancerFillProductDataResponse
-	AiProductDataEnhancerFillProductDataExecute(r AiProductDataEnhancerAPIAiProductDataEnhancerFillProductDataRequest) (*AiproductdataenhancerFillProductDataResponse, *http.Response, error)
+	AiProductDataEnhancerFillProductDataExecute(r ApiAiProductDataEnhancerFillProductDataRequest) (*AiproductdataenhancerFillProductDataResponse, *http.Response, error)
 
 	/*
-	AiProductDataEnhancerFillProductDataCheck Method for AiProductDataEnhancerFillProductDataCheck
+		AiProductDataEnhancerFillProductDataCheck Method for AiProductDataEnhancerFillProductDataCheck
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return AiProductDataEnhancerAPIAiProductDataEnhancerFillProductDataCheckRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiAiProductDataEnhancerFillProductDataCheckRequest
 	*/
-	AiProductDataEnhancerFillProductDataCheck(ctx context.Context) AiProductDataEnhancerAPIAiProductDataEnhancerFillProductDataCheckRequest
+	AiProductDataEnhancerFillProductDataCheck(ctx context.Context) ApiAiProductDataEnhancerFillProductDataCheckRequest
 
 	// AiProductDataEnhancerFillProductDataCheckExecute executes the request
 	//  @return AiproductdataenhancerFillProductDataCheckResponse
-	AiProductDataEnhancerFillProductDataCheckExecute(r AiProductDataEnhancerAPIAiProductDataEnhancerFillProductDataCheckRequest) (*AiproductdataenhancerFillProductDataCheckResponse, *http.Response, error)
+	AiProductDataEnhancerFillProductDataCheckExecute(r ApiAiProductDataEnhancerFillProductDataCheckRequest) (*AiproductdataenhancerFillProductDataCheckResponse, *http.Response, error)
 
 	/*
-	AiProductDataEnhancerTranslateData Method for AiProductDataEnhancerTranslateData
+		AiProductDataEnhancerGenerateProductData Method for AiProductDataEnhancerGenerateProductData
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return AiProductDataEnhancerAPIAiProductDataEnhancerTranslateDataRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiAiProductDataEnhancerGenerateProductDataRequest
 	*/
-	AiProductDataEnhancerTranslateData(ctx context.Context) AiProductDataEnhancerAPIAiProductDataEnhancerTranslateDataRequest
+	AiProductDataEnhancerGenerateProductData(ctx context.Context) ApiAiProductDataEnhancerGenerateProductDataRequest
+
+	// AiProductDataEnhancerGenerateProductDataExecute executes the request
+	//  @return AiproductdataenhancerGenerateProductDataResponse
+	AiProductDataEnhancerGenerateProductDataExecute(r ApiAiProductDataEnhancerGenerateProductDataRequest) (*AiproductdataenhancerGenerateProductDataResponse, *http.Response, error)
+
+	/*
+		AiProductDataEnhancerTranslateData Method for AiProductDataEnhancerTranslateData
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiAiProductDataEnhancerTranslateDataRequest
+	*/
+	AiProductDataEnhancerTranslateData(ctx context.Context) ApiAiProductDataEnhancerTranslateDataRequest
 
 	// AiProductDataEnhancerTranslateDataExecute executes the request
 	//  @return AiproductdataenhancerTranslateDataResponse
-	AiProductDataEnhancerTranslateDataExecute(r AiProductDataEnhancerAPIAiProductDataEnhancerTranslateDataRequest) (*AiproductdataenhancerTranslateDataResponse, *http.Response, error)
+	AiProductDataEnhancerTranslateDataExecute(r ApiAiProductDataEnhancerTranslateDataRequest) (*AiproductdataenhancerTranslateDataResponse, *http.Response, error)
 }
 
 // AiProductDataEnhancerAPIService AiProductDataEnhancerAPI service
 type AiProductDataEnhancerAPIService service
 
-type AiProductDataEnhancerAPIAiProductDataEnhancerFillProductDataRequest struct {
-	ctx context.Context
+type ApiAiProductDataEnhancerFillProductDataRequest struct {
+	ctx        context.Context
 	ApiService AiProductDataEnhancerAPI
-	body *AiproductdataenhancerFillProductDataRequest
+	body       *AiproductdataenhancerFillProductDataRequest
 }
 
-func (r AiProductDataEnhancerAPIAiProductDataEnhancerFillProductDataRequest) Body(body AiproductdataenhancerFillProductDataRequest) AiProductDataEnhancerAPIAiProductDataEnhancerFillProductDataRequest {
+func (r ApiAiProductDataEnhancerFillProductDataRequest) Body(body AiproductdataenhancerFillProductDataRequest) ApiAiProductDataEnhancerFillProductDataRequest {
 	r.body = &body
 	return r
 }
 
-func (r AiProductDataEnhancerAPIAiProductDataEnhancerFillProductDataRequest) Execute() (*AiproductdataenhancerFillProductDataResponse, *http.Response, error) {
+func (r ApiAiProductDataEnhancerFillProductDataRequest) Execute() (*AiproductdataenhancerFillProductDataResponse, *http.Response, error) {
 	return r.ApiService.AiProductDataEnhancerFillProductDataExecute(r)
 }
 
 /*
 AiProductDataEnhancerFillProductData Method for AiProductDataEnhancerFillProductData
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AiProductDataEnhancerAPIAiProductDataEnhancerFillProductDataRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiAiProductDataEnhancerFillProductDataRequest
 */
-func (a *AiProductDataEnhancerAPIService) AiProductDataEnhancerFillProductData(ctx context.Context) AiProductDataEnhancerAPIAiProductDataEnhancerFillProductDataRequest {
-	return AiProductDataEnhancerAPIAiProductDataEnhancerFillProductDataRequest{
+func (a *AiProductDataEnhancerAPIService) AiProductDataEnhancerFillProductData(ctx context.Context) ApiAiProductDataEnhancerFillProductDataRequest {
+	return ApiAiProductDataEnhancerFillProductDataRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return AiproductdataenhancerFillProductDataResponse
-func (a *AiProductDataEnhancerAPIService) AiProductDataEnhancerFillProductDataExecute(r AiProductDataEnhancerAPIAiProductDataEnhancerFillProductDataRequest) (*AiproductdataenhancerFillProductDataResponse, *http.Response, error) {
+//
+//	@return AiproductdataenhancerFillProductDataResponse
+func (a *AiProductDataEnhancerAPIService) AiProductDataEnhancerFillProductDataExecute(r ApiAiProductDataEnhancerFillProductDataRequest) (*AiproductdataenhancerFillProductDataResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AiproductdataenhancerFillProductDataResponse
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AiproductdataenhancerFillProductDataResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AiProductDataEnhancerAPIService.AiProductDataEnhancerFillProductData")
@@ -154,14 +166,14 @@ func (a *AiProductDataEnhancerAPIService) AiProductDataEnhancerFillProductDataEx
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-			var v RpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v RpcStatus
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -177,42 +189,43 @@ func (a *AiProductDataEnhancerAPIService) AiProductDataEnhancerFillProductDataEx
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AiProductDataEnhancerAPIAiProductDataEnhancerFillProductDataCheckRequest struct {
-	ctx context.Context
+type ApiAiProductDataEnhancerFillProductDataCheckRequest struct {
+	ctx        context.Context
 	ApiService AiProductDataEnhancerAPI
-	body *AiproductdataenhancerFillProductDataCheckRequest
+	body       *AiproductdataenhancerFillProductDataCheckRequest
 }
 
-func (r AiProductDataEnhancerAPIAiProductDataEnhancerFillProductDataCheckRequest) Body(body AiproductdataenhancerFillProductDataCheckRequest) AiProductDataEnhancerAPIAiProductDataEnhancerFillProductDataCheckRequest {
+func (r ApiAiProductDataEnhancerFillProductDataCheckRequest) Body(body AiproductdataenhancerFillProductDataCheckRequest) ApiAiProductDataEnhancerFillProductDataCheckRequest {
 	r.body = &body
 	return r
 }
 
-func (r AiProductDataEnhancerAPIAiProductDataEnhancerFillProductDataCheckRequest) Execute() (*AiproductdataenhancerFillProductDataCheckResponse, *http.Response, error) {
+func (r ApiAiProductDataEnhancerFillProductDataCheckRequest) Execute() (*AiproductdataenhancerFillProductDataCheckResponse, *http.Response, error) {
 	return r.ApiService.AiProductDataEnhancerFillProductDataCheckExecute(r)
 }
 
 /*
 AiProductDataEnhancerFillProductDataCheck Method for AiProductDataEnhancerFillProductDataCheck
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AiProductDataEnhancerAPIAiProductDataEnhancerFillProductDataCheckRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiAiProductDataEnhancerFillProductDataCheckRequest
 */
-func (a *AiProductDataEnhancerAPIService) AiProductDataEnhancerFillProductDataCheck(ctx context.Context) AiProductDataEnhancerAPIAiProductDataEnhancerFillProductDataCheckRequest {
-	return AiProductDataEnhancerAPIAiProductDataEnhancerFillProductDataCheckRequest{
+func (a *AiProductDataEnhancerAPIService) AiProductDataEnhancerFillProductDataCheck(ctx context.Context) ApiAiProductDataEnhancerFillProductDataCheckRequest {
+	return ApiAiProductDataEnhancerFillProductDataCheckRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return AiproductdataenhancerFillProductDataCheckResponse
-func (a *AiProductDataEnhancerAPIService) AiProductDataEnhancerFillProductDataCheckExecute(r AiProductDataEnhancerAPIAiProductDataEnhancerFillProductDataCheckRequest) (*AiproductdataenhancerFillProductDataCheckResponse, *http.Response, error) {
+//
+//	@return AiproductdataenhancerFillProductDataCheckResponse
+func (a *AiProductDataEnhancerAPIService) AiProductDataEnhancerFillProductDataCheckExecute(r ApiAiProductDataEnhancerFillProductDataCheckRequest) (*AiproductdataenhancerFillProductDataCheckResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AiproductdataenhancerFillProductDataCheckResponse
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AiproductdataenhancerFillProductDataCheckResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AiProductDataEnhancerAPIService.AiProductDataEnhancerFillProductDataCheck")
@@ -270,14 +283,14 @@ func (a *AiProductDataEnhancerAPIService) AiProductDataEnhancerFillProductDataCh
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-			var v RpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v RpcStatus
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -293,42 +306,160 @@ func (a *AiProductDataEnhancerAPIService) AiProductDataEnhancerFillProductDataCh
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AiProductDataEnhancerAPIAiProductDataEnhancerTranslateDataRequest struct {
-	ctx context.Context
+type ApiAiProductDataEnhancerGenerateProductDataRequest struct {
+	ctx        context.Context
 	ApiService AiProductDataEnhancerAPI
-	body *AiproductdataenhancerTranslateDataRequest
+	body       *AiproductdataenhancerGenerateProductDataRequest
 }
 
-func (r AiProductDataEnhancerAPIAiProductDataEnhancerTranslateDataRequest) Body(body AiproductdataenhancerTranslateDataRequest) AiProductDataEnhancerAPIAiProductDataEnhancerTranslateDataRequest {
+func (r ApiAiProductDataEnhancerGenerateProductDataRequest) Body(body AiproductdataenhancerGenerateProductDataRequest) ApiAiProductDataEnhancerGenerateProductDataRequest {
 	r.body = &body
 	return r
 }
 
-func (r AiProductDataEnhancerAPIAiProductDataEnhancerTranslateDataRequest) Execute() (*AiproductdataenhancerTranslateDataResponse, *http.Response, error) {
+func (r ApiAiProductDataEnhancerGenerateProductDataRequest) Execute() (*AiproductdataenhancerGenerateProductDataResponse, *http.Response, error) {
+	return r.ApiService.AiProductDataEnhancerGenerateProductDataExecute(r)
+}
+
+/*
+AiProductDataEnhancerGenerateProductData Method for AiProductDataEnhancerGenerateProductData
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiAiProductDataEnhancerGenerateProductDataRequest
+*/
+func (a *AiProductDataEnhancerAPIService) AiProductDataEnhancerGenerateProductData(ctx context.Context) ApiAiProductDataEnhancerGenerateProductDataRequest {
+	return ApiAiProductDataEnhancerGenerateProductDataRequest{
+		ApiService: a,
+		ctx:        ctx,
+	}
+}
+
+// Execute executes the request
+//
+//	@return AiproductdataenhancerGenerateProductDataResponse
+func (a *AiProductDataEnhancerAPIService) AiProductDataEnhancerGenerateProductDataExecute(r ApiAiProductDataEnhancerGenerateProductDataRequest) (*AiproductdataenhancerGenerateProductDataResponse, *http.Response, error) {
+	var (
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AiproductdataenhancerGenerateProductDataResponse
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AiProductDataEnhancerAPIService.AiProductDataEnhancerGenerateProductData")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/aiproductdataenhancer.AiProductDataEnhancer/GenerateProductData"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.body == nil {
+		return localVarReturnValue, nil, reportError("body is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.body
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		var v RpcStatus
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiAiProductDataEnhancerTranslateDataRequest struct {
+	ctx        context.Context
+	ApiService AiProductDataEnhancerAPI
+	body       *AiproductdataenhancerTranslateDataRequest
+}
+
+func (r ApiAiProductDataEnhancerTranslateDataRequest) Body(body AiproductdataenhancerTranslateDataRequest) ApiAiProductDataEnhancerTranslateDataRequest {
+	r.body = &body
+	return r
+}
+
+func (r ApiAiProductDataEnhancerTranslateDataRequest) Execute() (*AiproductdataenhancerTranslateDataResponse, *http.Response, error) {
 	return r.ApiService.AiProductDataEnhancerTranslateDataExecute(r)
 }
 
 /*
 AiProductDataEnhancerTranslateData Method for AiProductDataEnhancerTranslateData
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AiProductDataEnhancerAPIAiProductDataEnhancerTranslateDataRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiAiProductDataEnhancerTranslateDataRequest
 */
-func (a *AiProductDataEnhancerAPIService) AiProductDataEnhancerTranslateData(ctx context.Context) AiProductDataEnhancerAPIAiProductDataEnhancerTranslateDataRequest {
-	return AiProductDataEnhancerAPIAiProductDataEnhancerTranslateDataRequest{
+func (a *AiProductDataEnhancerAPIService) AiProductDataEnhancerTranslateData(ctx context.Context) ApiAiProductDataEnhancerTranslateDataRequest {
+	return ApiAiProductDataEnhancerTranslateDataRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return AiproductdataenhancerTranslateDataResponse
-func (a *AiProductDataEnhancerAPIService) AiProductDataEnhancerTranslateDataExecute(r AiProductDataEnhancerAPIAiProductDataEnhancerTranslateDataRequest) (*AiproductdataenhancerTranslateDataResponse, *http.Response, error) {
+//
+//	@return AiproductdataenhancerTranslateDataResponse
+func (a *AiProductDataEnhancerAPIService) AiProductDataEnhancerTranslateDataExecute(r ApiAiProductDataEnhancerTranslateDataRequest) (*AiproductdataenhancerTranslateDataResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AiproductdataenhancerTranslateDataResponse
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AiproductdataenhancerTranslateDataResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AiProductDataEnhancerAPIService.AiProductDataEnhancerTranslateData")
@@ -386,14 +517,14 @@ func (a *AiProductDataEnhancerAPIService) AiProductDataEnhancerTranslateDataExec
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-			var v RpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v RpcStatus
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 

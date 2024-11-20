@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **CompletionRate**| **float32** |   | [optional]
 **Status**| [**AiproductdataenhancerJobStatus**](AiproductdataenhancerJobStatus.md) |  for more information please, see Model/AiproductdataenhancerJobStatus.php  | [optional] [default to AIPRODUCTDATAENHANCERJOBSTATUS_UNKNOWN]
 **Error**| [**AiproductdataenhancerError**](AiproductdataenhancerError.md) |   | [optional]
+**ImageUrls**| **[]string** |   | [optional]
 
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

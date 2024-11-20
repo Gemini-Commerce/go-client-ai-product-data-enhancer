@@ -19,11 +19,14 @@ var _ MappedNullable = &AiproductdataenhancerProductDataToFill{}
 
 // AiproductdataenhancerProductDataToFill struct for AiproductdataenhancerProductDataToFill
 type AiproductdataenhancerProductDataToFill struct {
-	Name *string `json:"name,omitempty"`
+	Name     *string  `json:"name,omitempty"`
 	ValueSet []string `json:"valueSet,omitempty"`
 	// Metadata is an optional field to provide additional information to the AI like, max length, min length, field description, etc.
-	Metadata *map[string]string `json:"metadata,omitempty"`
+	Metadata             *map[string]string `json:"metadata,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _AiproductdataenhancerProductDataToFill AiproductdataenhancerProductDataToFill
 
 // NewAiproductdataenhancerProductDataToFill instantiates a new AiproductdataenhancerProductDataToFill object
 // This constructor will assign default values to properties that have it defined,
@@ -139,7 +142,7 @@ func (o *AiproductdataenhancerProductDataToFill) SetMetadata(v map[string]string
 }
 
 func (o AiproductdataenhancerProductDataToFill) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -157,7 +160,55 @@ func (o AiproductdataenhancerProductDataToFill) ToMap() (map[string]interface{},
 	if !IsNil(o.Metadata) {
 		toSerialize["metadata"] = o.Metadata
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *AiproductdataenhancerProductDataToFill) UnmarshalJSON(data []byte) (err error) {
+	varAiproductdataenhancerProductDataToFill := _AiproductdataenhancerProductDataToFill{}
+
+	err = json.Unmarshal(data, &varAiproductdataenhancerProductDataToFill)
+
+	if err != nil {
+		return err
+	}
+
+	*o = AiproductdataenhancerProductDataToFill(varAiproductdataenhancerProductDataToFill)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "valueSet")
+		delete(additionalProperties, "metadata")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
+}
+
+// GetValue returns the value of well-known types
+func (o *AiproductdataenhancerProductDataToFill) GetValue() interface{} {
+	if o == nil || IsNil(o.AdditionalProperties) {
+		return nil
+	}
+	return o.AdditionalProperties["value"]
+}
+
+// SetValue populates the value of well-known types
+func (o *AiproductdataenhancerProductDataToFill) SetValue(value interface{}) {
+	if o == nil || IsNil(value) {
+		return
+	}
+	if IsNil(o.AdditionalProperties) {
+		o.AdditionalProperties = map[string]interface{}{}
+	}
+	o.AdditionalProperties["value"] = value
+	return
 }
 
 type NullableAiproductdataenhancerProductDataToFill struct {
@@ -195,5 +246,3 @@ func (v *NullableAiproductdataenhancerProductDataToFill) UnmarshalJSON(src []byt
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

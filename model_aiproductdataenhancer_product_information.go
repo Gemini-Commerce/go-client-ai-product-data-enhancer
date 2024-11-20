@@ -19,10 +19,13 @@ var _ MappedNullable = &AiproductdataenhancerProductInformation{}
 
 // AiproductdataenhancerProductInformation struct for AiproductdataenhancerProductInformation
 type AiproductdataenhancerProductInformation struct {
-	Brand *string `json:"brand,omitempty"`
-	Code *string `json:"code,omitempty"`
-	Title *string `json:"title,omitempty"`
+	Brand                *string `json:"brand,omitempty"`
+	Code                 *string `json:"code,omitempty"`
+	Title                *string `json:"title,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _AiproductdataenhancerProductInformation AiproductdataenhancerProductInformation
 
 // NewAiproductdataenhancerProductInformation instantiates a new AiproductdataenhancerProductInformation object
 // This constructor will assign default values to properties that have it defined,
@@ -138,7 +141,7 @@ func (o *AiproductdataenhancerProductInformation) SetTitle(v string) {
 }
 
 func (o AiproductdataenhancerProductInformation) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -156,7 +159,55 @@ func (o AiproductdataenhancerProductInformation) ToMap() (map[string]interface{}
 	if !IsNil(o.Title) {
 		toSerialize["title"] = o.Title
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *AiproductdataenhancerProductInformation) UnmarshalJSON(data []byte) (err error) {
+	varAiproductdataenhancerProductInformation := _AiproductdataenhancerProductInformation{}
+
+	err = json.Unmarshal(data, &varAiproductdataenhancerProductInformation)
+
+	if err != nil {
+		return err
+	}
+
+	*o = AiproductdataenhancerProductInformation(varAiproductdataenhancerProductInformation)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "brand")
+		delete(additionalProperties, "code")
+		delete(additionalProperties, "title")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
+}
+
+// GetValue returns the value of well-known types
+func (o *AiproductdataenhancerProductInformation) GetValue() interface{} {
+	if o == nil || IsNil(o.AdditionalProperties) {
+		return nil
+	}
+	return o.AdditionalProperties["value"]
+}
+
+// SetValue populates the value of well-known types
+func (o *AiproductdataenhancerProductInformation) SetValue(value interface{}) {
+	if o == nil || IsNil(value) {
+		return
+	}
+	if IsNil(o.AdditionalProperties) {
+		o.AdditionalProperties = map[string]interface{}{}
+	}
+	o.AdditionalProperties["value"] = value
+	return
 }
 
 type NullableAiproductdataenhancerProductInformation struct {
@@ -194,5 +245,3 @@ func (v *NullableAiproductdataenhancerProductInformation) UnmarshalJSON(src []by
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

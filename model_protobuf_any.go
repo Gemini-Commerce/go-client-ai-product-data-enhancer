@@ -19,9 +19,12 @@ var _ MappedNullable = &ProtobufAny{}
 
 // ProtobufAny struct for ProtobufAny
 type ProtobufAny struct {
-	Type *string `json:"@type,omitempty"`
-	Value *string `json:"value,omitempty"`
+	Type                 *string `json:"@type,omitempty"`
+	Value                *string `json:"value,omitempty" validate:"regexp=^(?:[A-Za-z0-9+\\/]{4})*(?:[A-Za-z0-9+\\/]{2}==|[A-Za-z0-9+\\/]{3}=)?$"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _ProtobufAny ProtobufAny
 
 // NewProtobufAny instantiates a new ProtobufAny object
 // This constructor will assign default values to properties that have it defined,
@@ -105,7 +108,7 @@ func (o *ProtobufAny) SetValue(v string) {
 }
 
 func (o ProtobufAny) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -120,7 +123,34 @@ func (o ProtobufAny) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Value) {
 		toSerialize["value"] = o.Value
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *ProtobufAny) UnmarshalJSON(data []byte) (err error) {
+	varProtobufAny := _ProtobufAny{}
+
+	err = json.Unmarshal(data, &varProtobufAny)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ProtobufAny(varProtobufAny)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "@type")
+		delete(additionalProperties, "value")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableProtobufAny struct {
@@ -158,5 +188,3 @@ func (v *NullableProtobufAny) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

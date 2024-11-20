@@ -19,9 +19,12 @@ var _ MappedNullable = &AiproductdataenhancerDataToTranslate{}
 
 // AiproductdataenhancerDataToTranslate struct for AiproductdataenhancerDataToTranslate
 type AiproductdataenhancerDataToTranslate struct {
-	Name *string `json:"name,omitempty"`
-	Value *string `json:"value,omitempty"`
+	Name                 *string `json:"name,omitempty"`
+	Value                *string `json:"value,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _AiproductdataenhancerDataToTranslate AiproductdataenhancerDataToTranslate
 
 // NewAiproductdataenhancerDataToTranslate instantiates a new AiproductdataenhancerDataToTranslate object
 // This constructor will assign default values to properties that have it defined,
@@ -105,7 +108,7 @@ func (o *AiproductdataenhancerDataToTranslate) SetValue(v string) {
 }
 
 func (o AiproductdataenhancerDataToTranslate) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -120,7 +123,34 @@ func (o AiproductdataenhancerDataToTranslate) ToMap() (map[string]interface{}, e
 	if !IsNil(o.Value) {
 		toSerialize["value"] = o.Value
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *AiproductdataenhancerDataToTranslate) UnmarshalJSON(data []byte) (err error) {
+	varAiproductdataenhancerDataToTranslate := _AiproductdataenhancerDataToTranslate{}
+
+	err = json.Unmarshal(data, &varAiproductdataenhancerDataToTranslate)
+
+	if err != nil {
+		return err
+	}
+
+	*o = AiproductdataenhancerDataToTranslate(varAiproductdataenhancerDataToTranslate)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "value")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableAiproductdataenhancerDataToTranslate struct {
@@ -158,5 +188,3 @@ func (v *NullableAiproductdataenhancerDataToTranslate) UnmarshalJSON(src []byte)
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

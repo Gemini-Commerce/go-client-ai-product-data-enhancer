@@ -19,11 +19,14 @@ var _ MappedNullable = &AiproductdataenhancerTranslateDataRequest{}
 
 // AiproductdataenhancerTranslateDataRequest struct for AiproductdataenhancerTranslateDataRequest
 type AiproductdataenhancerTranslateDataRequest struct {
-	TenantId *string `json:"tenantId,omitempty"`
-	TargetLanguage *AiproductdataenhancerLanguageCode `json:"targetLanguage,omitempty"`
-	SourceLanguage *AiproductdataenhancerLanguageCode `json:"sourceLanguage,omitempty"`
-	DataToTranslate []AiproductdataenhancerDataToTranslate `json:"dataToTranslate,omitempty"`
+	TenantId             *string                                `json:"tenantId,omitempty"`
+	TargetLanguage       *AiproductdataenhancerLanguageCode     `json:"targetLanguage,omitempty"`
+	SourceLanguage       *AiproductdataenhancerLanguageCode     `json:"sourceLanguage,omitempty"`
+	DataToTranslate      []AiproductdataenhancerDataToTranslate `json:"dataToTranslate,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _AiproductdataenhancerTranslateDataRequest AiproductdataenhancerTranslateDataRequest
 
 // NewAiproductdataenhancerTranslateDataRequest instantiates a new AiproductdataenhancerTranslateDataRequest object
 // This constructor will assign default values to properties that have it defined,
@@ -179,7 +182,7 @@ func (o *AiproductdataenhancerTranslateDataRequest) SetDataToTranslate(v []Aipro
 }
 
 func (o AiproductdataenhancerTranslateDataRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -200,7 +203,56 @@ func (o AiproductdataenhancerTranslateDataRequest) ToMap() (map[string]interface
 	if !IsNil(o.DataToTranslate) {
 		toSerialize["dataToTranslate"] = o.DataToTranslate
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *AiproductdataenhancerTranslateDataRequest) UnmarshalJSON(data []byte) (err error) {
+	varAiproductdataenhancerTranslateDataRequest := _AiproductdataenhancerTranslateDataRequest{}
+
+	err = json.Unmarshal(data, &varAiproductdataenhancerTranslateDataRequest)
+
+	if err != nil {
+		return err
+	}
+
+	*o = AiproductdataenhancerTranslateDataRequest(varAiproductdataenhancerTranslateDataRequest)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "tenantId")
+		delete(additionalProperties, "targetLanguage")
+		delete(additionalProperties, "sourceLanguage")
+		delete(additionalProperties, "dataToTranslate")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
+}
+
+// GetValue returns the value of well-known types
+func (o *AiproductdataenhancerTranslateDataRequest) GetValue() interface{} {
+	if o == nil || IsNil(o.AdditionalProperties) {
+		return nil
+	}
+	return o.AdditionalProperties["value"]
+}
+
+// SetValue populates the value of well-known types
+func (o *AiproductdataenhancerTranslateDataRequest) SetValue(value interface{}) {
+	if o == nil || IsNil(value) {
+		return
+	}
+	if IsNil(o.AdditionalProperties) {
+		o.AdditionalProperties = map[string]interface{}{}
+	}
+	o.AdditionalProperties["value"] = value
+	return
 }
 
 type NullableAiproductdataenhancerTranslateDataRequest struct {
@@ -238,5 +290,3 @@ func (v *NullableAiproductdataenhancerTranslateDataRequest) UnmarshalJSON(src []
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

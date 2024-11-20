@@ -19,10 +19,13 @@ var _ MappedNullable = &AiproductdataenhancerTranslateDataResponse{}
 
 // AiproductdataenhancerTranslateDataResponse struct for AiproductdataenhancerTranslateDataResponse
 type AiproductdataenhancerTranslateDataResponse struct {
-	DataTranslated *map[string]string `json:"dataTranslated,omitempty"`
-	ConfidenceRate *float32 `json:"confidenceRate,omitempty"`
-	CompletionRate *float32 `json:"completionRate,omitempty"`
+	DataTranslated       *map[string]string `json:"dataTranslated,omitempty"`
+	ConfidenceRate       *float32           `json:"confidenceRate,omitempty"`
+	CompletionRate       *float32           `json:"completionRate,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _AiproductdataenhancerTranslateDataResponse AiproductdataenhancerTranslateDataResponse
 
 // NewAiproductdataenhancerTranslateDataResponse instantiates a new AiproductdataenhancerTranslateDataResponse object
 // This constructor will assign default values to properties that have it defined,
@@ -138,7 +141,7 @@ func (o *AiproductdataenhancerTranslateDataResponse) SetCompletionRate(v float32
 }
 
 func (o AiproductdataenhancerTranslateDataResponse) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -156,7 +159,55 @@ func (o AiproductdataenhancerTranslateDataResponse) ToMap() (map[string]interfac
 	if !IsNil(o.CompletionRate) {
 		toSerialize["completionRate"] = o.CompletionRate
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *AiproductdataenhancerTranslateDataResponse) UnmarshalJSON(data []byte) (err error) {
+	varAiproductdataenhancerTranslateDataResponse := _AiproductdataenhancerTranslateDataResponse{}
+
+	err = json.Unmarshal(data, &varAiproductdataenhancerTranslateDataResponse)
+
+	if err != nil {
+		return err
+	}
+
+	*o = AiproductdataenhancerTranslateDataResponse(varAiproductdataenhancerTranslateDataResponse)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "dataTranslated")
+		delete(additionalProperties, "confidenceRate")
+		delete(additionalProperties, "completionRate")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
+}
+
+// GetValue returns the value of well-known types
+func (o *AiproductdataenhancerTranslateDataResponse) GetValue() interface{} {
+	if o == nil || IsNil(o.AdditionalProperties) {
+		return nil
+	}
+	return o.AdditionalProperties["value"]
+}
+
+// SetValue populates the value of well-known types
+func (o *AiproductdataenhancerTranslateDataResponse) SetValue(value interface{}) {
+	if o == nil || IsNil(value) {
+		return
+	}
+	if IsNil(o.AdditionalProperties) {
+		o.AdditionalProperties = map[string]interface{}{}
+	}
+	o.AdditionalProperties["value"] = value
+	return
 }
 
 type NullableAiproductdataenhancerTranslateDataResponse struct {
@@ -194,5 +245,3 @@ func (v *NullableAiproductdataenhancerTranslateDataResponse) UnmarshalJSON(src [
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-
